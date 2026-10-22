@@ -180,3 +180,9 @@ Or use the built output (`node dist/stdio/client.js`) if you've run `npm run bui
 | `get_smart_block` | admin | `GET /api/v2/smart-blocks/{id}` + `/smart-block-criteria` + `/smart-block-contents` |
 | `get_smart_block_criteria` | admin | `GET /api/v2/smart-block-criteria` |
 | `get_smart_block_contents` | admin | `GET /api/v2/smart-block-contents` |
+| `add_smart_block_criteria` | admin | `POST /api/v2/smart-block-criteria` for one or several `block_ids` (table loaded once, no-op if identical criterion exists) |
+| `update_smart_block_criteria` | admin | `PATCH /api/v2/smart-block-criteria/{id}` |
+| `delete_smart_block_criteria` | admin | `DELETE /api/v2/smart-block-criteria/{id}` |
+| `create_smart_block` | admin | `POST /api/v2/smart-blocks` |
+| `update_smart_block` | admin | `PATCH /api/v2/smart-blocks/{id}` |
+| `delete_smart_block` | admin | `DELETE /api/v2/smart-blocks/{id}` (refuses if used in a playlist unless `force`) |
