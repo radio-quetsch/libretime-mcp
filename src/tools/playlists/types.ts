@@ -24,5 +24,6 @@ export const PlaylistContentSchema = z.object({
   playlist: z.number().nullable(),
   file: z.number().nullable(),
   stream: z.number().nullable(),
+  block: z.number().nullable().optional(),
 }).passthrough()
 export type PlaylistContent = z.infer<typeof PlaylistContentSchema>
