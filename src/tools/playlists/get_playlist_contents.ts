@@ -14,7 +14,9 @@ export function register(server: McpServer) {
     async ({ playlist_id }) => {
       const raw = await libreGet('/api/v2/playlist-contents', { playlist: String(playlist_id) })
       const contents = PlaylistContentSchema.array().parse(raw)
-      return toolText(contents)
+      // LibreTime ignores the `playlist` query param and returns every playlist's contents,
+      // so filter client-side.
+      return toolText(contents.filter((item) => item.playlist === playlist_id))
     }
   )
 }
