@@ -150,6 +150,8 @@ Or use the built output (`node dist/stdio/client.js`) if you've run `npm run bui
 6. Register the new tool in the category's `index.ts` barrel, then wire it up in `stdio/client.ts` and/or `stdio/admin.ts` (and their `http/` counterparts) based on access level.
 7. Add a matching test file under `tests/tools/<category>/` mirroring the source path.
 
+> **Gotcha:** the LibreTime list endpoints ignore query-string filters (e.g. `?playlist=5`, `?block=38` still return every row). Always filter the parsed result client-side.
+
 ## Current Tools
 
 | Tool | Server | LibreTime Endpoint |
@@ -174,3 +176,7 @@ Or use the built output (`node dist/stdio/client.js`) if you've run `npm run bui
 | `create_playlist` | admin | `POST /api/v2/playlists` |
 | `get_playlist_contents` | admin | `GET /api/v2/playlist-contents` |
 | `add_to_playlist` | admin | `POST /api/v2/playlist-contents` |
+| `get_smart_blocks` | admin | `GET /api/v2/smart-blocks` |
+| `get_smart_block` | admin | `GET /api/v2/smart-blocks/{id}` + `/smart-block-criteria` + `/smart-block-contents` |
+| `get_smart_block_criteria` | admin | `GET /api/v2/smart-block-criteria` |
+| `get_smart_block_contents` | admin | `GET /api/v2/smart-block-contents` |
