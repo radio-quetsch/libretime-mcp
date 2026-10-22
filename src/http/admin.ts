@@ -11,6 +11,7 @@ import { register as registerAnalytics } from '../tools/analytics/index.js'
 import { register as registerAdmin } from '../tools/admin/index.js'
 import { register as registerFiles } from '../tools/files/index.js'
 import { register as registerPlaylists } from '../tools/playlists/index.js'
+import { register as registerSmartBlocks } from '../tools/smartblocks/index.js'
 import { register as registerPrompts } from '../prompts/index.js'
 import { registerUploadEndpoint } from './upload.js'
 import { createHttpServer } from './server.js'
@@ -38,6 +39,7 @@ createHttpServer({
     registerAdmin(server)
     registerFiles(server, uploadUrl, UPLOAD_TOKEN)
     registerPlaylists(server)
+    registerSmartBlocks(server)
     registerPrompts(server)
   },
 })
